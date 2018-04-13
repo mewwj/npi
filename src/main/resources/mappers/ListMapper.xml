@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.npi.dao.ListMapper">
+  <resultMap id="BaseResultMap" type="com.npi.pojo.Messages">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="headid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="insproject" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="item" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="items" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="problems" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filenamea" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ng" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="defectlevels" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reasons" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="measures" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filenameb" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="exhibitor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="head" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plantime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="finishtime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="confirm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="affect" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="comment" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pmcomm" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, headid, insproject, item, items, problems, filenamea, ng, defectlevels, reasons, 
+    measures, filenameb, exhibitor, head, plantime, finishtime, confirm, affect, comment, 
+    pmcomm
+  </sql>
+<!-- 统计设计方面 -->
+<select id="shejifangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面'
+</select>
+<!-- 统计软件方面 -->  
+<select id="ruanjianfangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='软件方面'
+</select> 
+<!-- 统计工艺方面 -->  
+<select id="gongyifangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='工艺方面 '
+</select> 
+<!-- 统计作业方面 -->  
+<select id="zuoyefangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='作业方面'
+</select> 
+<!-- 统计来料方面 -->  
+<select id="lailiaofangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='来料方面'
+</select> 
+<!-- 统计客户方面 -->  
+<select id="kehufangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='客户方面'
+</select> 
+<!-- 统计其他方面 -->  
+<select id="otherfangmiancount" parameterType="java.lang.Integer">
+select COUNT(*) from npi_all_messages WHERE headid=#{id} AND  insproject='其他方面'
+</select> 
+<!-- 设计机构soundbar -->  
+<select id="shejijigousoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='机构部分' AND items='SOUNDBAR'
+</select> 
+<!-- 设计机构woofer -->  
+<select id="shejijigouwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='机构部分' AND items='WOOFER'
+</select> 
+<!-- 设计喇叭soundbar -->  
+<select id="shejilabasoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='喇叭部分'
+</select> 
+<!-- 设计喇叭woofer -->  
+<select id="shejilabawoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='喇叭部分' AND items='WOOFER'
+</select> 
+<!-- 设计包装soundbar -->  
+<select id="shejibaozhuangsoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='包装部分'
+</select> 
+<!-- 设计包装woofer -->  
+<select id="shejibaozhuangwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='包装部分' AND items='WOOFER'
+</select> 
+<!-- 设计其他soundbar -->  
+<select id="shejiothersoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='其他部分' AND items='SOUNDBAR'
+</select> 
+<!-- 设计其他woofer -->  
+<select id="shejiotherwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='设计方面' AND item='其他部分' AND items='WOOFER'
+</select> 
+ <!--软件soundbar -->  
+<select id="ruanjiansoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='软件方面' AND items='SOUNDBAR'
+</select>
+ <!--软件woofer -->  
+<select id="ruanjianwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='软件方面' AND items='WOOFER'
+</select>
+ <!--工艺soundbar -->  
+<select id="gongyisoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='工艺方面' AND items='SOUNDBAR'
+</select>
+ <!--工艺woofer -->  
+<select id="gongyiwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='工艺方面' AND items='WOOFER'
+</select>
+ <!-- 作业soundbar -->  
+<select id="zuoyesoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='作业方面' AND items='SOUNDBAR'
+</select>
+ <!-- 作业woofer -->  
+<select id="zuoyewoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='作业方面' AND items='WOOFER'
+</select>
+ <!-- 来料soundbar -->  
+<select id="lailiaosoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='来料方面' AND items='SOUNDBAR'
+</select>
+ <!-- 来料woofer -->  
+<select id="lailiaowoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='来料方面' AND items='WOOFER'
+</select>
+ <!-- 客户soundbar -->  
+<select id="kehusoundbar" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='客户方面' AND items='SOUNDBAR'
+</select>
+ <!-- 客户woofer -->  
+<select id="kehuwoofer" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='客户方面' AND items='WOOFER'
+</select>
+ <!-- 其他方面 -->  
+<select id="otherfangmian" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from npi_all_messages WHERE headid=#{id} AND  insproject='其他方面'
+</select>
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.npi.dao.HeadMapper">
+  <resultMap id="BaseResultMap" type="com.npi.pojo.Head">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stage0" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stage" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="cusname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="proname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="modeltype" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="trydate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="trytime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="team" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="trialsite" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="goodnumber" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="goodrate" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stage0, stage, cusname, proname, modeltype, trydate, trytime, team, trialsite, 
+    number, goodnumber, goodrate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from npi_all_head
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from npi_all_head
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.npi.pojo.Head">
+    insert into npi_all_head (id, stage0, stage, 
+      cusname, proname, modeltype, 
+      trydate, trytime, team, 
+      trialsite, number, goodnumber, 
+      goodrate)
+    values (#{id,jdbcType=INTEGER}, #{stage0,jdbcType=VARCHAR}, #{stage,jdbcType=VARCHAR}, 
+      #{cusname,jdbcType=VARCHAR}, #{proname,jdbcType=VARCHAR}, #{modeltype,jdbcType=VARCHAR}, 
+      #{trydate,jdbcType=VARCHAR}, #{trytime,jdbcType=VARCHAR}, #{team,jdbcType=VARCHAR}, 
+      #{trialsite,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{goodnumber,jdbcType=VARCHAR}, 
+      #{goodrate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.npi.pojo.Head">
+    insert into npi_all_head
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stage0 != null">
+        stage0,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+      <if test="cusname != null">
+        cusname,
+      </if>
+      <if test="proname != null">
+        proname,
+      </if>
+      <if test="modeltype != null">
+        modeltype,
+      </if>
+      <if test="trydate != null">
+        trydate,
+      </if>
+      <if test="trytime != null">
+        trytime,
+      </if>
+      <if test="team != null">
+        team,
+      </if>
+      <if test="trialsite != null">
+        trialsite,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="goodnumber != null">
+        goodnumber,
+      </if>
+      <if test="goodrate != null">
+        goodrate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stage0 != null">
+        #{stage0,jdbcType=VARCHAR},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=VARCHAR},
+      </if>
+      <if test="cusname != null">
+        #{cusname,jdbcType=VARCHAR},
+      </if>
+      <if test="proname != null">
+        #{proname,jdbcType=VARCHAR},
+      </if>
+      <if test="modeltype != null">
+        #{modeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="trydate != null">
+        #{trydate,jdbcType=VARCHAR},
+      </if>
+      <if test="trytime != null">
+        #{trytime,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="trialsite != null">
+        #{trialsite,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="goodnumber != null">
+        #{goodnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodrate != null">
+        #{goodrate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.npi.pojo.Head">
+    update npi_all_head
+    <set>
+      <if test="stage0 != null">
+        stage0 = #{stage0,jdbcType=VARCHAR},
+      </if>
+      <if test="stage != null">
+        stage = #{stage,jdbcType=VARCHAR},
+      </if>
+      <if test="cusname != null">
+        cusname = #{cusname,jdbcType=VARCHAR},
+      </if>
+      <if test="proname != null">
+        proname = #{proname,jdbcType=VARCHAR},
+      </if>
+      <if test="modeltype != null">
+        modeltype = #{modeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="trydate != null">
+        trydate = #{trydate,jdbcType=VARCHAR},
+      </if>
+      <if test="trytime != null">
+        trytime = #{trytime,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        team = #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="trialsite != null">
+        trialsite = #{trialsite,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="goodnumber != null">
+        goodnumber = #{goodnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodrate != null">
+        goodrate = #{goodrate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.npi.pojo.Head">
+    update npi_all_head
+    set stage0 = #{stage0,jdbcType=VARCHAR},
+      stage = #{stage,jdbcType=VARCHAR},
+      cusname = #{cusname,jdbcType=VARCHAR},
+      proname = #{proname,jdbcType=VARCHAR},
+      modeltype = #{modeltype,jdbcType=VARCHAR},
+      trydate = #{trydate,jdbcType=VARCHAR},
+      trytime = #{trytime,jdbcType=VARCHAR},
+      team = #{team,jdbcType=VARCHAR},
+      trialsite = #{trialsite,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      goodnumber = #{goodnumber,jdbcType=VARCHAR},
+      goodrate = #{goodrate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 查找所有专案信息 -->
+<select id="selectAll" resultMap="BaseResultMap">
+ select 
+ <include refid="Base_Column_List" />
+ from  npi_all_head
+</select>  
+
+<!-- 根据客户名称跟专案名称模糊查询 -->
+ <select id="selectByCusnameAndProname" resultMap="BaseResultMap">
+  select 
+ <include refid="Base_Column_List" />
+ from npi_all_head 
+ <where>
+ 	 <if test="cusname != null and cusname!=''">
+        cusname = #{cusname} 
+      </if>
+ 	<if test="proname != null and proname!=''">
+       and proname = #{proname}
+      </if>
+ </where>
+<!-- 插入检讨信息 -->
+</select>
+  <insert id="insertHead" parameterType="com.npi.pojo.Head">
+    insert into npi_all_head
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stage0 != null">
+        stage0,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+      <if test="cusname != null">
+        cusname,
+      </if>
+      <if test="proname != null">
+        proname,
+      </if>
+      <if test="modeltype != null">
+        modeltype,
+      </if>
+      <if test="trydate != null">
+        trydate,
+      </if>
+      <if test="trytime != null">
+        trytime,
+      </if>
+      <if test="team != null">
+        team,
+      </if>
+      <if test="trialsite != null">
+        trialsite,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="goodnumber != null">
+        goodnumber,
+      </if>
+      <if test="goodrate != null">
+        goodrate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stage0 != null">
+        #{stage0,jdbcType=VARCHAR},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=VARCHAR},
+      </if>
+      <if test="cusname != null">
+        #{cusname,jdbcType=VARCHAR},
+      </if>
+      <if test="proname != null">
+        #{proname,jdbcType=VARCHAR},
+      </if>
+      <if test="modeltype != null">
+        #{modeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="trydate != null">
+        #{trydate,jdbcType=VARCHAR},
+      </if>
+      <if test="trytime != null">
+        #{trytime,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="trialsite != null">
+        #{trialsite,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="goodnumber != null">
+        #{goodnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodrate != null">
+        #{goodrate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+ 
+ <select id="selectIdByCusnameAndProname" resultType="Integer">
+  select id from npi_all_head 
+ <where>
+ 	 <if test="cusname != null and cusname!=''">
+        cusname = #{cusname} 
+      </if>
+ 	<if test="proname != null and proname!=''">
+       and proname = #{proname}
+      </if>
+</where>
+ </select>
+ 
+</mapper>
+
+
+

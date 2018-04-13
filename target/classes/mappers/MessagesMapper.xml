@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.npi.dao.MessagesMapper">
+  <resultMap id="BaseResultMap" type="com.npi.pojo.Messages">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="headid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="insproject" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="item" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="items" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="problems" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filenamea" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ng" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="defectlevels" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reasons" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="measures" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filenameb" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="exhibitor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="head" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plantime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="finishtime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="confirm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="affect" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="comment" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pmcomm" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, headid, insproject, item, items, problems, filenamea, ng, defectlevels, reasons, 
+    measures, filenameb, exhibitor, head, plantime, finishtime, confirm, affect, comment, 
+    pmcomm
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from npi_all_messages
+    where headid = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from npi_all_messages
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.npi.pojo.Messages">
+    insert into npi_all_messages (id, headid, insproject, 
+      item, items, problems, 
+      filenamea, ng, defectlevels, 
+      reasons, measures, filenameb, 
+      exhibitor, head, plantime, 
+      finishtime, confirm, affect, 
+      comment, pmcomm)
+    values (#{id,jdbcType=INTEGER}, #{headid,jdbcType=INTEGER}, #{insproject,jdbcType=VARCHAR}, 
+      #{item,jdbcType=VARCHAR}, #{items,jdbcType=VARCHAR}, #{problems,jdbcType=VARCHAR}, 
+      #{filenamea,jdbcType=VARCHAR}, #{ng,jdbcType=VARCHAR}, #{defectlevels,jdbcType=VARCHAR}, 
+      #{reasons,jdbcType=VARCHAR}, #{measures,jdbcType=VARCHAR}, #{filenameb,jdbcType=VARCHAR}, 
+      #{exhibitor,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{plantime,jdbcType=VARCHAR}, 
+      #{finishtime,jdbcType=VARCHAR}, #{confirm,jdbcType=VARCHAR}, #{affect,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{pmcomm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.npi.pojo.Messages">
+    insert into npi_all_messages
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="headid != null">
+        headid,
+      </if>
+      <if test="insproject != null">
+        insproject,
+      </if>
+      <if test="item != null">
+        item,
+      </if>
+      <if test="items != null">
+        items,
+      </if>
+      <if test="problems != null">
+        problems,
+      </if>
+      <if test="filenamea != null">
+        filenamea,
+      </if>
+      <if test="ng != null">
+        ng,
+      </if>
+      <if test="defectlevels != null">
+        defectlevels,
+      </if>
+      <if test="reasons != null">
+        reasons,
+      </if>
+      <if test="measures != null">
+        measures,
+      </if>
+      <if test="filenameb != null">
+        filenameb,
+      </if>
+      <if test="exhibitor != null">
+        exhibitor,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="plantime != null">
+        plantime,
+      </if>
+      <if test="finishtime != null">
+        finishtime,
+      </if>
+      <if test="confirm != null">
+        confirm,
+      </if>
+      <if test="affect != null">
+        affect,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="pmcomm != null">
+        pmcomm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="headid != null">
+        #{headid,jdbcType=INTEGER},
+      </if>
+      <if test="insproject != null">
+        #{insproject,jdbcType=VARCHAR},
+      </if>
+      <if test="item != null">
+        #{item,jdbcType=VARCHAR},
+      </if>
+      <if test="items != null">
+        #{items,jdbcType=VARCHAR},
+      </if>
+      <if test="problems != null">
+        #{problems,jdbcType=VARCHAR},
+      </if>
+      <if test="filenamea != null">
+        #{filenamea,jdbcType=VARCHAR},
+      </if>
+      <if test="ng != null">
+        #{ng,jdbcType=VARCHAR},
+      </if>
+      <if test="defectlevels != null">
+        #{defectlevels,jdbcType=VARCHAR},
+      </if>
+      <if test="reasons != null">
+        #{reasons,jdbcType=VARCHAR},
+      </if>
+      <if test="measures != null">
+        #{measures,jdbcType=VARCHAR},
+      </if>
+      <if test="filenameb != null">
+        #{filenameb,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitor != null">
+        #{exhibitor,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="plantime != null">
+        #{plantime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishtime != null">
+        #{finishtime,jdbcType=VARCHAR},
+      </if>
+      <if test="confirm != null">
+        #{confirm,jdbcType=VARCHAR},
+      </if>
+      <if test="affect != null">
+        #{affect,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="pmcomm != null">
+        #{pmcomm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.npi.pojo.Messages">
+    update npi_all_messages
+    <set>
+      <if test="headid != null">
+        headid = #{headid,jdbcType=INTEGER},
+      </if>
+      <if test="insproject != null">
+        insproject = #{insproject,jdbcType=VARCHAR},
+      </if>
+      <if test="item != null">
+        item = #{item,jdbcType=VARCHAR},
+      </if>
+      <if test="items != null">
+        items = #{items,jdbcType=VARCHAR},
+      </if>
+      <if test="problems != null">
+        problems = #{problems,jdbcType=VARCHAR},
+      </if>
+      <if test="filenamea != null">
+        filenamea = #{filenamea,jdbcType=VARCHAR},
+      </if>
+      <if test="ng != null">
+        ng = #{ng,jdbcType=VARCHAR},
+      </if>
+      <if test="defectlevels != null">
+        defectlevels = #{defectlevels,jdbcType=VARCHAR},
+      </if>
+      <if test="reasons != null">
+        reasons = #{reasons,jdbcType=VARCHAR},
+      </if>
+      <if test="measures != null">
+        measures = #{measures,jdbcType=VARCHAR},
+      </if>
+      <if test="filenameb != null">
+        filenameb = #{filenameb,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitor != null">
+        exhibitor = #{exhibitor,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="plantime != null">
+        plantime = #{plantime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishtime != null">
+        finishtime = #{finishtime,jdbcType=VARCHAR},
+      </if>
+      <if test="confirm != null">
+        confirm = #{confirm,jdbcType=VARCHAR},
+      </if>
+      <if test="affect != null">
+        affect = #{affect,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="pmcomm != null">
+        pmcomm = #{pmcomm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.npi.pojo.Messages">
+    update npi_all_messages
+    set headid = #{headid,jdbcType=INTEGER},
+      insproject = #{insproject,jdbcType=VARCHAR},
+      item = #{item,jdbcType=VARCHAR},
+      items = #{items,jdbcType=VARCHAR},
+      problems = #{problems,jdbcType=VARCHAR},
+      filenamea = #{filenamea,jdbcType=VARCHAR},
+      ng = #{ng,jdbcType=VARCHAR},
+      defectlevels = #{defectlevels,jdbcType=VARCHAR},
+      reasons = #{reasons,jdbcType=VARCHAR},
+      measures = #{measures,jdbcType=VARCHAR},
+      filenameb = #{filenameb,jdbcType=VARCHAR},
+      exhibitor = #{exhibitor,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      plantime = #{plantime,jdbcType=VARCHAR},
+      finishtime = #{finishtime,jdbcType=VARCHAR},
+      confirm = #{confirm,jdbcType=VARCHAR},
+      affect = #{affect,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      pmcomm = #{pmcomm,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<!-- 根据userid查找用户 -->
+<select id="selectuser" parameterType="java.lang.Integer" resultType="String">
+  	select A0101 from tb_HR_A01 where A0190=#{id}
+</select>
+<!-- 插入多条数据  检讨信息 -->
+<insert id="insertBatch" parameterType="java.util.List">
+INSERT INTO npi_all_messages (headid,filenamea,exhibitor,problems,ng,defectlevels,head,
+plantime,insproject,item,items)VALUES
+<foreach collection="list" item="item" separator=",">
+(#{item.headid},#{item.filenamea},#{item.exhibitor},#{item.problems},#{item.ng},#{item.defectlevels},#{item.head}
+,#{item.plantime},#{item.insproject},#{item.item},#{item.items})
+</foreach>
+</insert>
+
+<!-- 查找文件名 -->
+<select id="selectfileas" parameterType="java.lang.Integer" resultType="String">
+select filenamea from npi_all_messages where headid=#{id}
+</select>
+<!-- 查找文件名 -->
+<select id="selectfileanames" parameterType="java.lang.Integer" resultType="String">
+select filenamea from npi_all_messages where headid=#{id}
+</select>
+<!-- 根据id删除多个文件   -->
+<delete id="deleteMsgsByIds">
+ delete from npi_all_messages where id in
+ <foreach close=")" collection="ids" item="item" open="(" separator=",">
+#{item} 
+ </foreach>
+</delete>
+<!-- 插入改善对策 -->
+  <update id="insertgaishanduice" parameterType="java.util.List">
+     <foreach collection="list" item="item">
+	UPDATE npi_all_messages SET measures= #{item.measures},reasons=#{item.reasons} where id=#{item.id};
+	</foreach>
+  </update>
+<!-- 导出到excel查找 -->
+<select id="selectMsgByIds" resultMap="BaseResultMap" >  
+        select 
+        <include refid="Base_Column_List" /> 
+        from npi_all_messages where id in  
+<foreach close=")" collection="array" index="index" item="item" open="(" separator=",">  
+     #{item}  
+ </foreach>  
+</select>  
+<!-- 查找未进行效果确认的消息 -->
+<select id="selectNoConfirmMessages" parameterType="String" resultMap="BaseResultMap">
+			select * from npi_all_messages WHERE (confirm = null or confirm='') and exhibitor LIKE #{name}
+</select>
+  <update id="insertNoConfirmMsgs" parameterType="java.util.List">
+   <foreach collection="list" item="item">
+	UPDATE npi_all_messages SET confirm= #{item.confirm},affect=#{item.affect} where id=#{item.id} and headid=#{item.headid};
+</foreach>
+  </update>
+<select id="selectMsgsByHeadid" parameterType="Integer" resultMap="BaseResultMap">
+select * from npi_all_messages where headid=#{id}
+</select>
+<!-- 根据id查找一条检讨信息 -->
+<select id="selectOneMsgByid" parameterType="Integer" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from npi_all_messages
+    where id = #{id,jdbcType=INTEGER}
+</select>
+</mapper>
